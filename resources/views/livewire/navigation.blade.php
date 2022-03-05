@@ -1,4 +1,4 @@
-    <header class="bg-orange-400 sticky top-0" x-data="dropdown()">
+    <header class="bg-orange-400 sticky top-0" style="z-index: 900" x-data="dropdown()">
         <div class="container flex items-center h-16 justify-between md:justify-start">
             <a :class="{'bg-opacity-100 text-orange-500' : open}" x-on:click="show()"
                 class="flex flex-col items-center justify-center order-last md:order-first px-6 md:px-4
@@ -50,7 +50,7 @@
                                 @csrf
                                 <x-jet-dropdown-link href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        this.closest('form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                this.closest('form').submit();">
                                     {{ __('Log Out') }}
                                 </x-jet-dropdown-link>
                             </form>
@@ -87,7 +87,8 @@
                     <ul class="bg-white">
                         @foreach ($categories as $category)
                             <li class="navigation-link text-gray-600 hover:bg-orange-400 hover:text-white">
-                                <a href="/" class="py-2 px-4 text-sm flex items-center">
+                                <a href="{{ route('categories.show', $category) }}"
+                                    class="py-2 px-4 text-sm flex items-center">
                                     <span class="flex justify-center w-9">
                                         {!! $category->icon !!}
                                     </span>
@@ -114,7 +115,8 @@
                 <ul>
                     @foreach ($categories as $category)
                         <li class="text-gray-500 hover:bg-orange-400 hover:text-white">
-                            <a href="/" class="py-2 px-4 text-sm flex items-center">
+                            <a href="{{ route('categories.show', $category) }}"
+                                class="py-2 px-4 text-sm flex items-center">
 
                                 <span class="flex justify-center w-9">
                                     {!! $category->icon !!}
@@ -139,7 +141,7 @@
                         Perfil
                     </a>
                     <a href="" onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit() "
+                                                document.getElementById('logout-form').submit() "
                         class="py-2 px-4 text-sm flex items-center text-gray-200 bg-cyan-500 hover:bg-cyan-600 hover:text-white">
                         <span class="flex justify-center w-9">
                             <i class="fas fa-sign-out-alt"></i>
