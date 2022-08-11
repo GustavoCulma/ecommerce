@@ -21,12 +21,18 @@ class DatabaseSeeder extends Seeder
         Storage::makeDirectory('categories');
         Storage::makeDirectory('subcategories');
         Storage::makeDirectory('products');
-        $this->call(UserSeeder::class);
-        $this->call(CategorySeeder::class);
-        $this->call(SubcategorySeeder::class);
-        $this->call(ProductSeeder::class);
-        $this->call(ColorSeeder::class);
-        $this->call(ColorProductSeeder::class);
-        $this->call(SizeSeeder::class);
+   
+        $this->call([
+            UserSeeder::class,
+            CategorySeeder::class,
+            SubcategorySeeder::class,
+            ProductSeeder::class,
+            ColorSeeder::class,
+            ColorProductSeeder::class,
+            SizeSeeder::class,
+            ColorSizeSeeder::class,
+            DepartmentSeeder::class,
+            CitySeeder::class,
+        ]);
     }
 }

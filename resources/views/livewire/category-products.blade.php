@@ -19,7 +19,7 @@
                                             {{ Str::limit($product->name, 10) }}
                                         </a>
                                     </h1>
-                                    <p class="font-bold text-gray-700">US$ {{ $product->price }}</p>
+                                    <p class="font-bold text-gray-700">COP $ {{ $product->price }}</p>
                                 </div>
                             </article>
                         </li>
